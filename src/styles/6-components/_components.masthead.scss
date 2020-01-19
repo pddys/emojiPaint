@@ -6,40 +6,4 @@
  * Base styles for mastheads
  */
 
- :root {
-    --wrapperWidth: 100vw;
-    --noOfColumns: 4;
 
-    --rowHeight: calc((var(--wrapperWidth) - (3 * var(--gutter))) / 4); //  where 4 is the number of columns and 3 is the number of gutters
-}
-
-$chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
-$chartColorsLength: length($chartColors);
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.c-grid {
-    max-width: 1440px;
-    max-height: 960px;
-    font-size: 0;
-}
-
-.c-grid__item {
-    cursor: crosshair;
-}
-
-.c-grid__item, .c-grid__reset, .c-grid__random {
-    font-size: 24px;
-    line-height: 24px;
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    display: inline-flex;;
-    justify-content: center;
-    justify-items: center;
-}
