@@ -2,6 +2,14 @@
 
 {% block content %}
 
-  <main class="main" role="main">(home - content)</main>
+  <main class="main" role="main">
+  	<div class="c-grid">
+  		<div class="c-grid__reset">♻️</div>
+  		<div class="c-grid__random">🎲</div>
+  		{% for i in range(0, 1918) -%}
+	  		<div class="c-grid__item">😊</div>
+		{%- endfor %}
+  	</div>
+  </main>
 
 {% endblock %}

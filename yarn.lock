@@ -2114,6 +2114,11 @@ emitter-steward@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/emitter-steward/-/emitter-steward-1.0.0.tgz#f3411ade9758a7565df848b2da0cbbd1b46cbd64"
 
+emoji.json@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/emoji.json/-/emoji.json-12.1.0.tgz#71710469103c6ad8b3d1bc55d75e1ea4e807b04f"
+  integrity sha512-/YZiFkMD0AfaaAMImFg/G2oNn0WfsuSTosv8oP4/vd1oB0ldGJAd4DfnPrzwVJ/701ce0e3u1JS87mFB/mxMEg==
+
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
