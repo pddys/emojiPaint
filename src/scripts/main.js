@@ -7,6 +7,60 @@ import jQuery from 'jquery';
     .addClass('js');
   // START JQUERY.
 
+  	const debounce = (func, wait, immediate) => {
+	    var timeout;
+	    return () => {
+	        const context = this, args = arguments;
+	        const later = function() {
+	            timeout = null;
+	            if (!immediate) func.apply(context, args);
+	        };
+	        const callNow = immediate && !timeout;
+	        clearTimeout(timeout);
+	        timeout = setTimeout(later, wait);
+	        if (callNow) func.apply(context, args);
+	    };
+	};
+
+  	const gridConTag = $('.c-grid');
+
+	let w = window.innerWidth;
+	let h = window.innerHeight;
+
+	let gridColumns = parseInt(w / 24)
+	let gridRows = parseInt(h / 24)
+
+	let gridArea = ((gridRows * gridColumns) - 2)
+
+		const addGridItems = function () {
+		    for (var i = 0; i < gridArea; i++) {
+		        gridConTag.append(newGridItem);
+		    }
+		}
+		addGridItems()
+
+  	const buildGrid = function() {
+
+		gridConTag.css('grid-template-columns', `repeat(${gridColumns}, 1fr)`)
+		gridConTag.css('grid-template-rows', `repeat(${gridRows}, 1fr)`)
+
+
+	}
+	buildGrid()
+	// window.addEventListener('resize', debounce(() =>
+	// 	buildGrid(),
+	// 200, false), false);
+
+
+
+
+	const newGridItem = '<div class="c-grid__item">😊</div>'
+
+
+
+	
+
+
 	const gridTag = $('.c-grid__item')
 
 	let emojiData = []
@@ -42,6 +96,14 @@ import jQuery from 'jquery';
 				})
 		    });
 
+			$(".c-grid__item").on("touchenter mouseover", function() {
+				let randomNumber = Math.floor(Math.random() * emojiData.length)
+				const randomEmojiData = emojiData[randomNumber]
+				$(this).text(randomEmojiData)
+			}).on("touchleave mouseleave", function() {
+			    // do hover end code
+			});
+
 
 
 		$('.c-grid__item').hover(function() {
@@ -59,6 +121,8 @@ import jQuery from 'jquery';
 			gridTag.html(randomEmojiData)
 		}
 	}
+
+
 
 	// $('.c-grid__reset').on("click", function () {
 	// 	gridTag.html(randomEmojiData)
