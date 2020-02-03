@@ -7,7 +7,41 @@ import jQuery from 'jquery';
     .addClass('js');
   // START JQUERY.
 
+	const debounce = (func, wait, immediate) => {
+	    var timeout;
+	    return () => {
+	        const context = this, args = arguments;
+	        const later = function() {
+	            timeout = null;
+	            if (!immediate) func.apply(context, args);
+	        };
+	        const callNow = immediate && !timeout;
+	        clearTimeout(timeout);
+	        timeout = setTimeout(later, wait);
+	        if (callNow) func.apply(context, args);
+	    };
+	};
+
 	const gridTag = $('.c-grid__item')
+
+
+
+	const addGridItems = function () {
+			let w = window.innerWidth;
+			let h = window.innerHeight;
+
+			let gridColumns = parseInt(w / 24)
+			let gridRows = parseInt(h / 24)
+
+			let gridArea = ((gridRows * gridColumns) - 3)
+			$(`.c-grid__item:lt(${gridArea})`).removeClass('hidden')
+			$(`.c-grid__item:gt(${gridArea})`).addClass('hidden')
+	}
+	addGridItems()
+
+	window.addEventListener('resize', debounce(() =>
+		addGridItems(),
+	200, false), false);
 
 	let emojiData = []
 	// emojiData = jsonData
