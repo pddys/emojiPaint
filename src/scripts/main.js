@@ -94,6 +94,16 @@ import jQuery from 'jquery';
 		}
 	}
 
+	//
+	// Try it again but for mobile
+	//
+
+	$('.c-grid').on('touchstart mouseenter', '.c-grid__item', function (e) {
+	    $(this).addClass('hover_effect');
+	    $(this).css('background', 'red');
+	    console.log('test 2')
+	});
+
 	// $('.c-grid__reset').on("click", function () {
 	// 	gridTag.html(randomEmojiData)
 	// })
