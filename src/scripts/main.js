@@ -98,11 +98,23 @@ import jQuery from 'jquery';
 	// Try it again but for mobile
 	//
 
-	$('.c-grid').on('touchstart mouseenter', '.c-grid__item', function (e) {
-	    $(this).addClass('hover_effect');
-	    $(this).css('background', 'red');
-	    console.log('test 2')
-	});
+	// $('.c-grid').on('touchstart mouseenter', '.c-grid__item', function (e) {
+	//     $(this).addClass('hover_effect');
+	//     $(this).css('background', 'red');
+	//     console.log('test 2')
+	// });
+
+	var src = document.getElementByClass(".c-grid");
+
+	src.addEventListener('touchstart', function(e) {
+	  // Iterate through the touch points and log each screenX/Y coordinate.
+	  // The unit of each coordinate is CSS pixels.
+	  var i;
+	  for (i=0; i < e.touches.length; i++) {
+	    console.log("touchpoint[" + i + "].screenX = " + e.touches[i].screenX);
+	    console.log("touchpoint[" + i + "].screenY = " + e.touches[i].screenY);
+	  }
+	}, false);
 
 	// $('.c-grid__reset').on("click", function () {
 	// 	gridTag.html(randomEmojiData)
