@@ -98,23 +98,55 @@ import jQuery from 'jquery';
 	// Try it again but for mobile
 	//
 
-	// $('.c-grid').on('touchstart mouseenter', '.c-grid__item', function (e) {
-	//     $(this).addClass('hover_effect');
-	//     $(this).css('background', 'red');
-	//     console.log('test 2')
-	// });
+	// let isMouseDown = false
 
-	var src = document.getElementByClass(".c-grid");
 
-	src.addEventListener('touchstart', function(e) {
-	  // Iterate through the touch points and log each screenX/Y coordinate.
-	  // The unit of each coordinate is CSS pixels.
+	// document.addEventListener('touchstart', function(event) {
+	//   isMouseDown = true
+	//   console.log(isMouseDown)
+	// })
+
+	// document.addEventListener('touchend', function() {
+	//   isMouseDown = false
+	//   	  console.log(isMouseDown)
+
+	// })
+
+	document.addEventListener('touchmove', function(e) {
+	  // console.log(event.pageX, event.pageY)
 	  var i;
 	  for (i=0; i < e.touches.length; i++) {
 	    console.log("touchpoint[" + i + "].screenX = " + e.touches[i].screenX);
 	    console.log("touchpoint[" + i + "].screenY = " + e.touches[i].screenY);
 	  }
-	}, false);
+	  // event pageX => where we are on the x axis
+	  // enent pageY => where we are on the y axis
+	  // moveCursor(event.pageX, event.pageY)
+	})
+
+	// // Register touchstart and touchend listeners for element 'source'
+	// var src = document.getElementById("source");
+	// var clientX, clientY;
+
+	// src.addEventListener('touchstart', function(e) {
+	//   // Cache the client X/Y coordinates
+	//   clientX = e.touches[0].clientX;
+	//   clientY = e.touches[0].clientY;
+	// }, false);
+
+	// src.addEventListener('touchend', function(e) {
+	//   var deltaX, deltaY;
+
+	//   // Compute the change in X and Y coordinates. 
+	//   // The first touch point in the changedTouches
+	//   // list is the touch point that was just removed from the surface.
+	//   deltaX = e.changedTouches[0].clientX - clientX;
+	//   deltaY = e.changedTouches[0].clientY - clientY;
+ //  	  console.log(event.deltaX, event.deltaY)
+
+	//   // Process the data ... 
+	// }, false);
+
 
 	// $('.c-grid__reset').on("click", function () {
 	// 	gridTag.html(randomEmojiData)
